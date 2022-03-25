@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/header/Header";
 import MyStake from "./components/MyStake/MyStake";
 import StakeHistory from "./components/StakeHistory/StakeHistory";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Footer from "./components/Footer/Footer";
 import { ethers, utils, Contract } from "ethers";
 import BRTTokenAbi from "./utils/web3/abi.json";
@@ -74,7 +74,7 @@ function App() {
   };
 
   // handler for when user switch from one account to another or completely disconnected
-  const handleAccountChanged = async (accounts) => {
+  const handleAccountChanged = useCallback(async (accounts) => {
     if (!!accounts.length) {
       const networkId = await window.ethereum.request({
         method: "eth_chainId",
@@ -96,10 +96,10 @@ function App() {
         address: null,
       });
     }
-  };
+  }, []);
 
   // handler for handling chain/network changed
-  const handleChainChanged = async (chainid) => {
+  const handleChainChanged = useCallback(async (chainid) => {
     if (Number(chainid) !== 80001) {
       setConnected(false);
       setUserInfo({
@@ -123,10 +123,10 @@ function App() {
       });
       setConnected(true);
     }
-  };
+  }, []);
 
   // an handler to eagerly connect user and fetch their data
-  const eagerConnect = async () => {
+  const eagerConnect = useCallback(async () => {
     const networkId = await window.ethereum.request({ method: "eth_chainId" });
     if (Number(networkId) !== 80001) return;
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -146,7 +146,7 @@ function App() {
       setRewardAmount((stakeAmount * 1.1) / 10 ** 18);
     } else setRewardAmount(0);
     setConnected(true);
-  };
+  }, [stakeAmount]);
 
   // a function for fetching necesary data from the contract and also listening for contract event when the page loads
   const init = async () => {
