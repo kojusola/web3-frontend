@@ -6,15 +6,12 @@ import Styles from "./MyStake.module.css";
 const MyStake = ({
   withdrawInput,
   stakeInput,
-  addressInput,
   onChangeInput,
   onClickStake,
   onClickWithdraw,
   rewardAmount,
   stakeAmount,
   connected,
-  onClickBalance,
-  stakeAddressAmount,
 }) => {
   return (
     <div className={Styles.root}>
