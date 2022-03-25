@@ -134,6 +134,7 @@ function App() {
     const accounts = await provider.listAccounts();
     if (!accounts.length) return;
     const accountDetails = await getAccountDetails(accounts[0]);
+    console.log(accountDetails);
     setUserInfo({
       matic_balance: accountDetails.userMaticBal,
       token_balance: accountDetails.userBRTBalance,
