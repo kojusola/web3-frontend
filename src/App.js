@@ -204,7 +204,7 @@ function App() {
     window.ethereum.on("connect", eagerConnect);
     window.ethereum.on("accountsChanged", handleAccountChanged);
     window.ethereum.on("chainChanged", handleChainChanged);
-  }, []);
+  }, [eagerConnect, handleAccountChanged, handleChainChanged]);
 
   const connectWallet = async () => {
     if (!!window.ethereum || !!window.web3) {
