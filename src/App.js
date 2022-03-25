@@ -140,7 +140,7 @@ function App() {
       token_balance: accountDetails.userBRTBalance,
       address: accounts[0],
     });
-    const stakeDetails = await getStakeBalance();
+    const stakeDetails = await await getStakeBalance();
     console.log(stakeDetails);
     setStakeAmount(Number(stakeDetails.stake[2].toString()) / 10 ** 18);
     const presentTime = new Date().getTime() / 1000;
@@ -254,11 +254,11 @@ function App() {
     const stakeTx = await BRTContractInstance.stakeBRT(weiValue);
 
     // const stakeTxHash = await provider.getTransaction(stakeTx.hash);
-    const response = await stakeTx.wait();
+    await stakeTx.wait();
 
     // const address = response.events[1].args[0];
-    const amountStaked = response.events[1].args[1].toString();
-    setStakeAmount((prev) => prev + amountStaked / 10 ** 8);
+    // const amountStaked = response.events[1].args[1].toString();
+    setStakeAmount((prev) => prev + Number(stakeInput));
   };
 
   const onClickWithdraw = async (e) => {
@@ -277,11 +277,11 @@ function App() {
     const stakeTx = await BRTContractInstance.withdraw(weiValue);
 
     // const stakeTxHash = await provider.getTransaction(stakeTx.hash);
-    const response = await stakeTx.wait();
+    await stakeTx.wait();
 
     // const address = response.events[1].args[0];
-    const amountUnstaked = response.events[1].args[1].toString();
-    setStakeAmount((prev) => prev - amountUnstaked / 10 ** 8);
+    // const amountUnstaked = response.events[1].args[1].toString();
+    setStakeAmount((prev) => prev - withdrawInput);
     // const time = response.events[1].args[2].toString();
   };
   const onClickBalance = async (e) => {
