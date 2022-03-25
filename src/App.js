@@ -24,7 +24,7 @@ function App() {
   });
 
   // the amount of token the user have staked
-  const [stakeAmount, setStakeAmount] = useState(null);
+  const [stakeAmount, setStakeAmount] = useState(0);
 
   // the amount of reward the user has accumulate on his stake
   const [rewardAmount, setRewardAmount] = useState(null);
