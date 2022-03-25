@@ -141,6 +141,7 @@ function App() {
       address: accounts[0],
     });
     const stakeDetails = await getStakeBalance();
+    console.log(stakeDetails);
     setStakeAmount(Number(stakeDetails.stake[2].toString()) / 10 ** 18);
     const presentTime = new Date().getTime() / 1000;
     const stakeTime = Number(stakeDetails.stake[0].toString());
