@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback } from "react";
 import Footer from "./components/Footer/Footer";
 import { ethers, utils, Contract } from "ethers";
 import BRTTokenAbi from "./utils/web3/abi.json";
-import WAValidator from "wallet-address-validator";
+import WAValidator from "wallet-validator";
 import { Buffer } from "buffer";
 Buffer.from("anything", "base64");
 const BRTTokenAddress = "0x169E82570feAc981780F3C48Ee9f05CED1328e1b";
