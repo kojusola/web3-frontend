@@ -1,42 +1,82 @@
 .root {
-    width: 100%;
-    margin: 4rem auto;
-    box-shadow: .5rem .5rem 10rem rgb(172, 169, 169);
-    border-radius: 1rem;
+  width: 100%;
+  margin: 4rem auto;
+  box-shadow: 0.5rem 0.5rem 10rem rgb(172, 169, 169);
+  border-radius: 1rem;
 }
 
 .table {
-    width: 100%;
+  width: 100%;
 }
 
 .table_header {
-    background-color: brown;
-    color: white;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+  background-color: brown;
+  color: white;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .table__head_row {
-    
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .table_head_data {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .table_data {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .stake_style {
-    background-color: rgb(209, 206, 206);
+  background-color: rgb(209, 206, 206);
 }
-
 
 .unstake_style {
-    background-color: rgb(240, 239, 239);
+  background-color: rgb(240, 239, 239);
 }
 
+.bal_btn {
+  padding: 1.1rem;
+  border: 0;
+  background-color: rgb(8, 153, 107);
+  border-radius: 0.3rem;
+  margin-left: 1rem;
+  width: 8rem;
+  color: #fff;
+  cursor: pointer;
+  width: 20%;
+  font-size: 17px;
+}
+
+.form {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  font-size: 20px;
+  margin-left: 50px;
+}
+.input {
+  padding: 1.2rem;
+  width: 40%;
+  border-radius: 0.2rem;
+  border: none;
+}
+
+@media only screen and (max-width: 820px) {
+  .root {
+    width: 1200px;
+    overflow-x: auto;
+  }
+}
+
+@media only screen and (max-width: 420px) and (min-width: 300px) {
+  .card_container {
+    display: flex;
+    flex-direction: column;
+  }
+}
