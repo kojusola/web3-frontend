@@ -27,7 +27,7 @@ function App() {
   const [stakeAmount, setStakeAmount] = useState(0);
 
   // the amount of reward the user has accumulate on his stake
-  const [rewardAmount, setRewardAmount] = useState(null);
+  const [rewardAmount, setRewardAmount] = useState(0);
   const [stakeAddressAmount, setStakeAddressAmount] = useState(0);
 
   // the value of token the user wants to stake
@@ -212,6 +212,7 @@ function App() {
   const connectWallet = async () => {
     if (!!window.ethereum || !!window.web3) {
       await window.ethereum.request({ method: "eth_requestAccounts" });
+      eagerConnect();
     } else {
       alert("please use an etherum enabled browser");
     }
