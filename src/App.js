@@ -134,19 +134,19 @@ function App() {
     const accounts = await provider.listAccounts();
     if (!accounts.length) return;
     const accountDetails = await getAccountDetails(accounts[0]);
-    console.log(accountDetails);
+    // console.log(accountDetails);
     setUserInfo({
       matic_balance: accountDetails.userMaticBal,
       token_balance: accountDetails.userBRTBalance,
       address: accounts[0],
     });
     const stakeDetails = await await getStakeBalance();
-    console.log(stakeDetails);
+    // console.log(stakeDetails);
     setStakeAmount(Number(stakeDetails.stake[2].toString()) / 10 ** 18);
     const presentTime = new Date().getTime() / 1000;
     const stakeTime = Number(stakeDetails.stake[0].toString());
     if (presentTime - stakeTime > 259200 && !!stakeTime) {
-      setRewardAmount((stakeAmount * 1.1) / 10 ** 18);
+      setRewardAmount((stakeAmount * (presentTime - stakeTime)) / 86400 / 300);
     } else setRewardAmount(0);
     setConnected(true);
   }, [stakeAmount]);
